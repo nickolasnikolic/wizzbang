@@ -9,7 +9,7 @@ class MyCrawler extends PHPCrawler
 	{
 
 		// Print the URL and the HTTP-status-Code
-		$this->wizz[] = $DocInfo->links_found_url_descriptors;
+		$this->wizz = $DocInfo->links_found;
 	}
 }
 
