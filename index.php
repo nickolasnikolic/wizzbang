@@ -11,12 +11,12 @@ class MyCrawler extends PHPCrawler
 		else $lb = "<br />";
 
 		// Print the URL and the HTTP-status-Code
-		echo "Page requested: " . $DocInfo->url . " (" . $DocInfo->http_status_code . ")";
+		echo "'"."Page requested: " . $DocInfo->url . " (" . $DocInfo->http_status_code . ")";
 
 		// Now you should do something with the content of the actual
 		// received page or file ($DocInfo->source), we skip it in this example
 
-		echo "'".$DocInfo->links_found_url_descriptors . "'".", ";
+		echo $DocInfo->links_found_url_descriptors . "'".", ";
 
 		flush();
 	}
