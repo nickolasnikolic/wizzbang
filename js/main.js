@@ -4,7 +4,7 @@ $(document).ready(function(){
 
             _.map(aLinks,function (i) {
                 console.log(i);
-                $('section').append('<article>'+ i + '</article>');
+                $('section').append('<article>'+ document.createTextNode(i) + '</article>');
             });
         });
 });
