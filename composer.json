@@ -1,0 +1,5 @@
+{
+    "require": {
+        "monkeyphp/php-spider": "^0.0.2"
+    }
+}
