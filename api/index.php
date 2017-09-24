@@ -1,36 +1,12 @@
 <?php
-include( "../classes/PHPCrawl/libs/PHPCrawler.class.php" );
 
-// Extend the class and override the handleDocumentInfo()-method
-class MyCrawler extends PHPCrawler
-{
-	public $wizz;
-	function handleDocumentInfo($DocInfo)
-	{
-		$this->wizz = $DocInfo->links_found;
-	}
+require 'vendor/autoload.php';
+
+use Elboletaire\Crawler\Crawler;
+
+try {
+	$crawler = new Crawler('http://www.underave.net', 3, true);
+	echo json_encode($crawler->crawl());
+} catch (Exception $e) {
+	die($e->getMessage());
 }
-
-// Now, create a instance of your class, define the behaviour
-// of the crawler (see class-reference for more options and details)
-// and start the crawling-process.
-
-$crawler = new MyCrawler();
-
-// URL to crawl
-$crawler->setURL("www.extremetech.com");
-
-// Only receive content of files with content-type "text/html"
-$crawler->addContentTypeReceiveRule("#text/html#");
-
-// Store and send cookie-data like a browser does
-$crawler->enableCookieHandling(true);
-
-// Set the traffic-limit to 1 MB (in bytes,
-// for testing we dont want to "suck" the whole site)
-$crawler->setTrafficLimit(1000 * 1024);
-
-// Thats enough, now here we go
-$crawler->go();
-
-echo json_encode($crawler->wizz);
