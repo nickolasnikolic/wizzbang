@@ -16,9 +16,9 @@ class MyCrawler extends PHPCrawler
 		// Print the refering URL
 		echo "Referer-page: ".$DocInfo->referer_url.$lb;
 
-		echo "Content: " . $DocInfo->content . $lb . $lb;
+		echo '<span style="display: inline;">' . $DocInfo->content . "</span>" . $lb . $lb;
 
-		// Print if the content of the document was be recieved or not
+		// Print if the content of the document was be received or not
 		if ($DocInfo->received == true)
 			echo "Content received: ".$DocInfo->bytes_received." bytes".$lb;
 		else
@@ -57,18 +57,3 @@ $crawler->setTrafficLimit(1000 * 1024);
 
 // Thats enough, now here we go
 $crawler->go();
-
-/*
-// At the end, after the process is finished, we print a short
-// report (see method getProcessReport() for more information)
-$report = $crawler->getProcessReport();
-
-if (PHP_SAPI == "cli") $lb = "\n";
-else $lb = "<br />";
-
-echo "Summary:".$lb;
-echo "Links followed: ".$report->links_followed.$lb;
-echo "Documents received: ".$report->files_received.$lb;
-echo "Bytes received: ".$report->bytes_received." bytes".$lb;
-echo "Process runtime: ".$report->process_runtime." sec".$lb;
-*/
