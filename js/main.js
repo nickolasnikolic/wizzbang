@@ -1,5 +1,9 @@
 $(document).ready(function(){
     $.get("api/index.php", function(data){
-            $.each(data.wizz,function(i){$('section').innerHTML(data.wizz[i])});
+            var aLinks = data.wizz;
+
+            _.each(aLinks,function (i) {
+                $('section').append('<article>').innerHTML(i);
+            });
         });
 });
