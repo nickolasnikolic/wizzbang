@@ -1,5 +1,5 @@
 <?php
-include("classes/PHPCrawl_083/PHPCrawler.class.php");
+include( "classes/Crawler.php" );
 
 $crawler = new MyCrawler();
 $crawler->setURL("www.wikipedia.org");
