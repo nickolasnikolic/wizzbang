@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    $.get("api/index.php")
-        .then(function(data){
+    $.get("api/index.php", function(data){
             console.log(data);
         });
 });
