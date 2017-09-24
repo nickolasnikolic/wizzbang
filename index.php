@@ -58,6 +58,7 @@ $crawler->setTrafficLimit(1000 * 1024);
 // Thats enough, now here we go
 $crawler->go();
 
+/*
 // At the end, after the process is finished, we print a short
 // report (see method getProcessReport() for more information)
 $report = $crawler->getProcessReport();
@@ -70,3 +71,4 @@ echo "Links followed: ".$report->links_followed.$lb;
 echo "Documents received: ".$report->files_received.$lb;
 echo "Bytes received: ".$report->bytes_received." bytes".$lb;
 echo "Process runtime: ".$report->process_runtime." sec".$lb;
+*/
