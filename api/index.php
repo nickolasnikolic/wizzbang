@@ -4,13 +4,13 @@ include( "../classes/PHPCrawl/libs/PHPCrawler.class.php" );
 // Extend the class and override the handleDocumentInfo()-method
 class MyCrawler extends PHPCrawler
 {
-	public $wizz = array();
+	public $wizz = Array();
 	function handleDocumentInfo($DocInfo)
 	{
 
 		// Print the URL and the HTTP-status-Code
-		array_push($wizz, "Page requested: " . $DocInfo->url . " (" . $DocInfo->http_status_code . ")" .
-		                  $DocInfo->links_found_url_descriptors);
+		$wizz[] =  "Page requested: " . $DocInfo->url . " (" . $DocInfo->http_status_code . ")" .
+		                  $DocInfo->links_found_url_descriptors;
 
 		flush();
 	}
