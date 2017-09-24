@@ -1,7 +1,6 @@
 <?php
 include( "classes/PHPCrawl/libs/PHPCrawler.class.php" );
 
-
 // Extend the class and override the handleDocumentInfo()-method
 class MyCrawler extends PHPCrawler
 {
@@ -38,27 +37,27 @@ class MyCrawler extends PHPCrawler
 
 $crawler = new MyCrawler();
 
-// URL to crawl (the entry-page of the mysql-documentation on php.net)
-$crawler->setURL("http://php.net/manual/en/book.mysql.php");
+// URL to crawl
+$crawler->setURL("www.php.net");
 
-// Only receive content of documents with content-type "text/html"
-$crawler->addReceiveContentType("#text/html#");
+// Only receive content of files with content-type "text/html"
+$crawler->addContentTypeReceiveRule("#text/html#");
 
-// Ignore links to pictures, css-documents etc (prefilter)
-$crawler->addURLFilterRule("#\.(jpg|gif|png|pdf|jpeg|css|js)$# i");
+// Ignore links to pictures, dont even request pictures
+$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png)$# i");
 
-// Every URL within the mysql-documentation looks like
-// "http://php.net/manual/en/function.mysql-affected-rows.php"
-// or "http://php.net/manual/en/mysql.setup.php", they all contain
-// "http://php.net/manual/en/" followed by  "mysql" somewhere.
-// So we add a corresponding follow-rule to the crawler.
-$crawler->addURLFollowRule("#^http://php.net/manual/en/.*mysql[^a-z]# i");
+// Store and send cookie-data like a browser does
+$crawler->enableCookieHandling(true);
 
-// That's it, start crawling using 5 processes
-$crawler->goMultiProcessed(5);
+// Set the traffic-limit to 1 MB (in bytes,
+// for testing we dont want to "suck" the whole site)
+$crawler->setTrafficLimit(1000 * 1024);
+
+// Thats enough, now here we go
+$crawler->go();
 
 // At the end, after the process is finished, we print a short
-// report (see method getReport() for more information)
+// report (see method getProcessReport() for more information)
 $report = $crawler->getProcessReport();
 
 if (PHP_SAPI == "cli") $lb = "\n";
