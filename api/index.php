@@ -23,9 +23,6 @@ $crawler->setURL("www.extremetech.com");
 // Only receive content of files with content-type "text/html"
 $crawler->addContentTypeReceiveRule("#text/html#");
 
-// Ignore links to pictures, dont even request pictures
-$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png)$# i");
-
 // Store and send cookie-data like a browser does
 $crawler->enableCookieHandling(true);
 
