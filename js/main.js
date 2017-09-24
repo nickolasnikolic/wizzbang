@@ -3,7 +3,8 @@ $(document).ready(function(){
             var aLinks = data.wizz;
 
             _.each(aLinks,function (i) {
-                $('section').append('<article>').innerHTML(i);
+                console.log(i);
+                $('section').append('<article>'+ i + '</article>');
             });
         });
 });
