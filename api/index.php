@@ -4,11 +4,9 @@ include( "../classes/PHPCrawl/libs/PHPCrawler.class.php" );
 // Extend the class and override the handleDocumentInfo()-method
 class MyCrawler extends PHPCrawler
 {
-	public $wizz = Array();
+	public $wizz;
 	function handleDocumentInfo($DocInfo)
 	{
-
-		// Print the URL and the HTTP-status-Code
 		$this->wizz = $DocInfo->links_found;
 	}
 }
