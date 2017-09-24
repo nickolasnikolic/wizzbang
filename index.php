@@ -16,7 +16,7 @@ class MyCrawler extends PHPCrawler
 		// Now you should do something with the content of the actual
 		// received page or file ($DocInfo->source), we skip it in this example
 
-		echo $DocInfo->links_found_url_descriptors . ", ";
+		echo "'".$DocInfo->links_found_url_descriptors . "'".", ";
 
 		flush();
 	}
