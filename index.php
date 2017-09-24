@@ -26,7 +26,7 @@ class MyCrawler extends PHPCrawler
 // of the crawler (see class-reference for more options and details)
 // and start the crawling-process.
 
-echo "[";
+echo '{ "wizz":[';
 
 $crawler = new MyCrawler();
 
@@ -49,4 +49,4 @@ $crawler->setTrafficLimit(1000 * 1024);
 // Thats enough, now here we go
 $crawler->go();
 
-echo "]";
+echo "]}";
