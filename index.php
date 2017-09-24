@@ -7,6 +7,8 @@
 		<script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
+        <section>
 
+        </section>
 	</body>
 </html>

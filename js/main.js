@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $.get("api/index.php", function(data){
-            console.log('here');
-            console.log(data);
+            $.each(data.wizz,function(i){$('section').innerHTML(data.wizz[i])});
         });
 });
